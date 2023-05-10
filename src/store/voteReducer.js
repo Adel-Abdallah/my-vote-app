@@ -1,23 +1,23 @@
 import { createSlice } from "@reduxjs/toolkit";
-import tomHanksImage from "../assets/tom-hanks.jpg";
-import bradPittImage from "../assets/brad-pitt.jpg";
-import leonardoDicaprioImage from "../assets/leonardo-dicaprio.jpg";
-import robertDowneyImage from "../assets/robert-downey-jr.jpg";
-import chrisHemsworthImage from "../assets/chris-hemsworth.jpg";
-import willSmithImage from "../assets/will-smith.jpg";
-import mattDamonImage from "../assets/matt-damon.jpg";
-import hughJackmanImage from "../assets/hugh-jackman.jpg";
-import denzelWashingtonImage from "../assets/denzel-washington.jpg";
+import tomHanksImage from "../../public/assets/tom-hanks.jpg";
+import bradPittImage from "../../public/assets/brad-pitt.jpg";
+import leonardoDicaprioImage from "../../public/assets/leonardo-dicaprio.jpg";
+import robertDowneyImage from "../../public/assets/robert-downey-jr.jpg";
+import chrisHemsworthImage from "../../public/assets/chris-hemsworth.jpg";
+import willSmithImage from "../../public/assets/will-smith.jpg";
+import mattDamonImage from "../../public/assets/matt-damon.jpg";
+import hughJackmanImage from "../../public/assets/hugh-jackman.jpg";
+import denzelWashingtonImage from "../../public/assets/denzel-washington.jpg";
 
-import emmaStoneImage from "../assets/emma-stone.jpg";
-import charlizeTheronImage from "../assets/charlize-theron.jpg";
-import jenniferLawrenceImage from "../assets/jennifer-lawrence.jpg";
-import nataliePortmanImage from "../assets/natalie-portman.jpg";
-import merylStreepImage from "../assets/meryl-streep.jpg";
-import galGadotImage from "../assets/gal-gadot.jpg";
-import anneHathawayImage from "../assets/anne-hathaway.jpg";
-import cateBlanchettImage from "../assets/cate-blanchett.jpg";
-import scarlettJohanssonImage from "../assets/scarlett-johansson.jpg";
+import emmaStoneImage from "../../public/assets/emma-stone.jpg";
+import charlizeTheronImage from "../../public/assets/charlize-theron.jpg";
+import jenniferLawrenceImage from "../../public/assets/jennifer-lawrence.jpg";
+import nataliePortmanImage from "../../public/assets/natalie-portman.jpg";
+import merylStreepImage from "../../public/assets/meryl-streep.jpg";
+import galGadotImage from "../../public/assets/gal-gadot.jpg";
+import anneHathawayImage from "../../public/assets/anne-hathaway.jpg";
+import cateBlanchettImage from "../../public/assets/cate-blanchett.jpg";
+import scarlettJohanssonImage from "../../public/assets/scarlett-johansson.jpg";
 
 const initialState = {
   maleCandidates: [
