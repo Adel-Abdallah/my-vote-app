@@ -6,7 +6,7 @@ import {
   setShowModal,
 } from "../../store/voteReducer";
 import VoteCategory from "../VoteCategory/VoteCategory";
-import "./votingApp.css";
+import "./VotingApp.css";
 
 const VotingApp = () => {
   const dispatch = useDispatch();

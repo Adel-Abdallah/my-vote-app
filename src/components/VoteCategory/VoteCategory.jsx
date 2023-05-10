@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import { useDispatch, useSelector } from "react-redux";
 import { voteMale, voteFemale } from "../../store/voteReducer";
-import "./voteCategory.css";
+import "./VoteCategory.css";
 
 const VoteCategory = ({ categoryName, image, name, candidateId, selected }) => {
   const dispatch = useDispatch();
