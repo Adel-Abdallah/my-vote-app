@@ -14,18 +14,19 @@ cd my-vote-app
   npm install
 
 ## Usage
-To start the development server:
+### To start the development server:
 ### npm run dev
-The application will be available at http://localhost:3000.
+The application will be available at (http://127.0.0.1:5173/).
 
 
-To build the production version:
-npm run preview
+### To build the production version:
+### npm run preview
 
 ## Deploying
 i used vercel for easy build and when ever i push new changes to github its updating my live site.
 
-### Dependencies i used in this project
+### Dependencies 
+I used in this project
 @reduxjs/toolkit: Redux toolkit for efficient Redux development.
 react: JavaScript library for building user interfaces.
 react-dom: React package for working with the DOM.
