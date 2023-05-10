@@ -1,55 +1,62 @@
+import { useSelector, useDispatch } from "react-redux";
+import {
+  voteMale,
+  voteFemale,
+  resetVotes,
+  setShowModal,
+} from "../../store/voteReducer";
 import VoteCategory from "../VoteCategory/VoteCategory";
-import useVoteStore from "../../store/useVoteStore";
 import "./votingApp.css";
 
 const VotingApp = () => {
+  const dispatch = useDispatch();
   const {
     votedMale,
     votedFemale,
-    voteMale,
-    voteFemale,
     showModal,
-    setShowModal,
-    resetVotes,
     maleCandidates,
     femaleCandidates,
     maleVotes,
     femaleVotes,
-  } = useVoteStore();
+  } = useSelector((state) => state.vote);
 
   const handleSubmit = () => {
-    console.log("true");
-    setShowModal(true);
+    dispatch(setShowModal(true));
   };
 
   const handleVoteMale = (candidateId) => {
-    console.log("Voted for Male Candidate:", candidateId);
-    voteMale(candidateId);
+    dispatch(voteMale({ candidateId }));
   };
 
   const handleVoteFemale = (candidateId) => {
-    console.log("Voted for Female Candidate:", candidateId);
-    voteFemale(candidateId);
+    dispatch(voteFemale({ candidateId }));
   };
 
   const handleCloseModal = () => {
-    console.log("close");
-    setShowModal(false);
-    resetVotes();
+    dispatch(resetVotes());
+    dispatch(setShowModal(false));
   };
 
   const isVotingCompleted = votedMale && votedFemale;
+
+  const bestMaleCandidate = maleCandidates.find(
+    (candidate) => candidate.id === maleVotes
+  );
+
+  const bestFemaleCandidate = femaleCandidates.find(
+    (candidate) => candidate.id === femaleVotes
+  );
 
   return (
     <div className='voting-app'>
       <div className='category-container'>
         <div className='male-category'>
-          <h3>Category Gentelman of the Year</h3>
+          <h3>Category Gentlemen of the Year</h3>
           <div className='Vote-Category-wrapper'>
             {maleCandidates.map((candidate) => (
               <VoteCategory
                 key={candidate.id}
-                categoryName='male' // Update categoryName to lowercase "male"
+                categoryName='male'
                 image={candidate.image}
                 name={candidate.name}
                 candidateId={candidate.id}
@@ -60,12 +67,12 @@ const VotingApp = () => {
           </div>
         </div>
         <div className='female-category'>
-          <h3>Category ladies of the year</h3>
+          <h3>Category Ladies of the Year</h3>
           <div className='Vote-Category-wrapper'>
             {femaleCandidates.map((candidate) => (
               <VoteCategory
                 key={candidate.id}
-                categoryName='female' // Update categoryName to lowercase "female"
+                categoryName='female'
                 image={candidate.image}
                 name={candidate.name}
                 candidateId={candidate.id}
@@ -83,8 +90,8 @@ const VotingApp = () => {
               <h2>Results</h2>
               {isVotingCompleted ? (
                 <div>
-                  <p>Best Male: Candidate Male {maleVotes}</p>
-                  <p>Best Female: Candidate Female {femaleVotes}</p>
+                  <p>Best Male: {bestMaleCandidate.name}</p>
+                  <p>Best Female: {bestFemaleCandidate.name}</p>
                 </div>
               ) : (
                 <p>No votes recorded yet.</p>

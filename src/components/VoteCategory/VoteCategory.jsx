@@ -1,17 +1,19 @@
-import useVoteStore from "../../store/useVoteStore";
 import PropTypes from "prop-types";
+import { useDispatch, useSelector } from "react-redux";
+import { voteMale, voteFemale } from "../../store/voteReducer";
 import "./voteCategory.css";
 
 const VoteCategory = ({ categoryName, image, name, candidateId, selected }) => {
-  const { voteMale, voteFemale, maleCandidates, femaleCandidates } =
-    useVoteStore();
+  const dispatch = useDispatch();
+  const maleCandidates = useSelector((state) => state.vote.maleCandidates);
+  const femaleCandidates = useSelector((state) => state.vote.femaleCandidates);
 
   const handleVote = (category) => {
     if (category === "male") {
-      voteMale(candidateId);
+      dispatch(voteMale({ candidateId }));
       console.log("candidateId", candidateId);
     } else if (category === "female") {
-      voteFemale(candidateId);
+      dispatch(voteFemale({ candidateId }));
       console.log("candidateId", candidateId);
     }
   };
@@ -20,9 +22,13 @@ const VoteCategory = ({ categoryName, image, name, candidateId, selected }) => {
   const isFemaleCategory = categoryName.toLowerCase() === "female";
 
   const isMaleVoted =
-    isMaleCategory && maleCandidates.find((candidate) => candidate.voted);
+    isMaleCategory &&
+    maleCandidates &&
+    maleCandidates.find((candidate) => candidate.voted);
   const isFemaleVoted =
-    isFemaleCategory && femaleCandidates.find((candidate) => candidate.voted);
+    isFemaleCategory &&
+    femaleCandidates &&
+    femaleCandidates.find((candidate) => candidate.voted);
 
   const isVoteDisabled = isMaleVoted || isFemaleVoted;
 
