@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import tomHanksImage from "../../public/assets/tom-hanks.jpg";
 import bradPittImage from "../../public/assets/brad-pitt.jpg";
 import leonardoDicaprioImage from "../../public/assets/leonardo-dicaprio.jpg";
-import robertDowneyImage from "../../public/assets/robert-downey-jr.jpg";
+import robertDowneyImage from "../../public/assets/robert-downey.jpg";
 import chrisHemsworthImage from "../../public/assets/chris-hemsworth.jpg";
 import willSmithImage from "../../public/assets/will-smith.jpg";
 import mattDamonImage from "../../public/assets/matt-damon.jpg";
